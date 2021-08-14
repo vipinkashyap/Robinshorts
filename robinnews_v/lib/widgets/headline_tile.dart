@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 
 class HeadLineTile extends StatefulWidget {
-  final BuildContext context;
   final AsyncSnapshot snapshot;
   final int index;
 
   HeadLineTile({
-    required this.context,
     required this.snapshot,
     required this.index,
     Key? key,
@@ -27,8 +25,11 @@ class _HeadLineTileState extends State<HeadLineTile> {
             widget.snapshot.data['articles'][widget.index]['source']['name'],
           ),
         ),
-        Text(
-          widget.snapshot.data['articles'][widget.index]['title'],
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            widget.snapshot.data['articles'][widget.index]['title'],
+          ),
         ),
         Image.network(
           widget.snapshot.data['articles'][widget.index]['urlToImage'],

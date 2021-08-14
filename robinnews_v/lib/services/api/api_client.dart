@@ -8,6 +8,8 @@ class ApiClient {
   final String everythingEndPoint = '/v2/everything';
   final String topHeadlinesEndPoint = '/v2/top-headlines';
   final String sourcesEndPoint = '/v2/top-headlines/sources';
+  final String defaultCountry = 'us';
+  final String homeCountry = 'in';
 
   Uri makeUri(String endPoint) {
     print(
@@ -20,7 +22,7 @@ class ApiClient {
                 'language': 'en',
               }
             : endPoint == this.topHeadlinesEndPoint
-                ? {'apiKey': this.apiKey, 'pageSize': '30'}
+                ? {'apiKey': this.apiKey, 'country': this.defaultCountry}
                 : {},
       ),
     );
@@ -33,7 +35,10 @@ class ApiClient {
               'language': 'en',
             }
           : endPoint == this.topHeadlinesEndPoint
-              ? {'apiKey': this.apiKey, 'pageSize': '30'}
+              ? {
+                  'apiKey': this.apiKey,
+                  'country': this.defaultCountry,
+                }
               : {},
     );
   }

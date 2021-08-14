@@ -22,7 +22,7 @@ class _FutureHeadlinesState extends State<FutureHeadlines> {
               itemCount: snapshot.data['articles'].length,
               itemBuilder: (BuildContext context, int index) {
                 return HeadLineTile(
-                  context: context,
+                  // context: context,
                   snapshot: snapshot,
                   index: index,
                 );
