@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robinnews_v/shared/utilities.dart';
 
 class HeadLineTile extends StatefulWidget {
   final AsyncSnapshot snapshot;
@@ -21,8 +22,23 @@ class _HeadLineTileState extends State<HeadLineTile> {
       children: [
         Align(
           alignment: Alignment.topLeft,
-          child: Text(
-            widget.snapshot.data['articles'][widget.index]['source']['name'],
+          child: Row(
+            children: [
+              Text(
+                widget.snapshot.data['articles'][widget.index]['source']
+                    ['name'],
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Text(
+                Utilities().hoursBetween(
+                  DateTime.parse(widget.snapshot.data['articles'][widget.index]
+                      ['publishedAt']),
+                  DateTime.now(),
+                ),
+              ),
+            ],
           ),
         ),
         Align(
