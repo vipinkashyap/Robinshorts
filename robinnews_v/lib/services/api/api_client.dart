@@ -22,7 +22,7 @@ class ApiClient {
                 'language': 'en',
               }
             : endPoint == this.topHeadlinesEndPoint
-                ? {'apiKey': this.apiKey, 'country': this.defaultCountry}
+                ? {'apiKey': this.apiKey, 'country': this.homeCountry}
                 : {},
       ),
     );

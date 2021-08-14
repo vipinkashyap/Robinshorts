@@ -30,7 +30,8 @@ class _HeadLineTileState extends State<HeadLineTile> {
             children: [
               Text(
                   widget.snapshot.data['articles'][widget.index]['source']
-                      ['name'],
+                          ['name'] ??
+                      'No Name',
                   style: GoogleFonts.lato(fontWeight: FontWeight.bold),
                   textScaleFactor: 0.9),
               SizedBox(
@@ -38,10 +39,11 @@ class _HeadLineTileState extends State<HeadLineTile> {
               ),
               Text(
                   Utilities().hoursBetween(
-                    DateTime.parse(widget.snapshot.data['articles']
-                        [widget.index]['publishedAt']),
-                    DateTime.now(),
-                  ),
+                        DateTime.parse(widget.snapshot.data['articles']
+                            [widget.index]['publishedAt']),
+                        DateTime.now(),
+                      ) ??
+                      '0h',
                   style: GoogleFonts.poppins(fontWeight: FontWeight.w300),
                   textScaleFactor: 0.9),
             ],
@@ -53,7 +55,8 @@ class _HeadLineTileState extends State<HeadLineTile> {
         Align(
           alignment: Alignment.centerLeft,
           child: Text(
-            widget.snapshot.data['articles'][widget.index]['title'],
+            widget.snapshot.data['articles'][widget.index]['title'] ??
+                'No Title',
             textScaleFactor: 1.2,
             style: GoogleFonts.notoSans(),
           ),
@@ -64,28 +67,45 @@ class _HeadLineTileState extends State<HeadLineTile> {
         Row(
           children: [
             Flexible(
+              flex: 1,
               child: Image.network(
-                widget.snapshot.data['articles'][widget.index]['urlToImage'],
+                widget.snapshot.data['articles'][widget.index]['urlToImage'] ??
+                    'https://timesofindia.indiatimes.com/photo/85324583/size-547898/85324583.jpg',
               ),
             ),
             SizedBox(
               width: 30,
             ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.3,
-              child: Align(
-                alignment: Alignment.center,
-                child: Flexible(
-                  child: Text(
-                    widget.snapshot.data['articles'][widget.index]
-                        ['description'],
-                    textScaleFactor: 1,
-                    style: GoogleFonts.oxygen(),
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 6,
+            Flexible(
+              flex: 2,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.3,
+                    child: Text(
+                      widget.snapshot.data['articles'][widget.index]
+                              ['description'] ??
+                          'No Description',
+                      textScaleFactor: 0.95,
+                      style: GoogleFonts.oxygen(),
+                      softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 10,
+                    ),
                   ),
-                ),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(
+                      widget.snapshot.data['articles'][widget.index]
+                              ['author'] ??
+                          'No Author',
+                      style: GoogleFonts.lato(),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
