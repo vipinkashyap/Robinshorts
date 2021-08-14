@@ -22,7 +22,11 @@ class ApiClient {
                 'language': 'en',
               }
             : endPoint == this.topHeadlinesEndPoint
-                ? {'apiKey': this.apiKey, 'country': this.homeCountry}
+                ? {
+                    'apiKey': this.apiKey,
+                    'country': this.homeCountry,
+                    'pageSize': '90',
+                  }
                 : {},
       ),
     );
@@ -37,7 +41,8 @@ class ApiClient {
           : endPoint == this.topHeadlinesEndPoint
               ? {
                   'apiKey': this.apiKey,
-                  'country': this.defaultCountry,
+                  'country': this.homeCountry,
+                  'pageSize': '90',
                 }
               : {},
     );

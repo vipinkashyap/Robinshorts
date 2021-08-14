@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:robinnews_v/shared/utilities.dart';
 
@@ -64,53 +65,74 @@ class _HeadLineTileState extends State<HeadLineTile> {
         SizedBox(
           height: 15.0,
         ),
-        Row(
-          children: [
-            Expanded(
-              flex: 2,
-              child: Image.network(
-                widget.snapshot.data['articles'][widget.index]['urlToImage'] ??
-                    'https://timesofindia.indiatimes.com/photo/85324583/size-547898/85324583.jpg',
+        InkWell(
+          onTap: () {
+            Utilities().urlLaunch(
+                widget.snapshot.data['articles'][widget.index]['url']);
+          },
+          child: Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: Image.network(
+                  widget.snapshot.data['articles'][widget.index]
+                          ['urlToImage'] ??
+                      'https://timesofindia.indiatimes.com/photo/85324583/size-547898/85324583.jpg',
+                ),
               ),
-            ),
-            SizedBox(
-              width: 30,
-            ),
-            Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  Center(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: Text(
-                        widget.snapshot.data['articles'][widget.index]
-                                ['description'] ??
-                            'No Description',
-                        textScaleFactor: 1.2,
-                        style: GoogleFonts.oxygen(),
-                        softWrap: true,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 10,
+              SizedBox(
+                width: 30,
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    Center(
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.3,
+                        child: Text(
+                          widget.snapshot.data['articles'][widget.index]
+                                  ['description'] ??
+                              'No Description',
+                          textScaleFactor: 1.2,
+                          style: GoogleFonts.oxygen(),
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 10,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: Text(
-                      widget.snapshot.data['articles'][widget.index]
-                              ['author'] ??
-                          'No Author',
-                      style: GoogleFonts.andada(fontWeight: FontWeight.w200),
+                    SizedBox(
+                      height: 10.0,
                     ),
-                  ),
-                ],
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.at,
+                            color: Colors.greenAccent,
+                            size: 12,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 4.0),
+                            child: Text(
+                              widget.snapshot.data['articles'][widget.index]
+                                      ['author'] ??
+                                  'Anonymous',
+                              style: GoogleFonts.andada(
+                                  fontWeight: FontWeight.w200),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         SizedBox(
           height: 10.0,
