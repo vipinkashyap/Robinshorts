@@ -11,17 +11,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.black,
-        appBarTheme: AppBarTheme(backgroundColor: Colors.black),
-        textTheme: TextTheme(
-          bodyText1: TextStyle(),
-          bodyText2: TextStyle(),
-        ).apply(
-          bodyColor: Colors.white,
-          displayColor: Colors.white,
-        ),
-      ),
+          scaffoldBackgroundColor: Colors.black,
+          appBarTheme: AppBarTheme(backgroundColor: Colors.black),
+          textTheme: TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+          ).apply(
+            bodyColor: Colors.white,
+            displayColor: Colors.white,
+          ),
+          iconTheme: IconThemeData(
+            color: Colors.white,
+          )),
       title: 'Robin News',
       routes: {'/': (_) => HomeScreen()},
     );

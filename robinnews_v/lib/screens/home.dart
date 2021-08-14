@@ -14,8 +14,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('ROBIN NEWS'),
+        actions: [Icon(Icons.search_sharp)],
       ),
-      body: FutureHeadlines(),
+      body: SafeArea(
+          minimum: EdgeInsets.all(
+            20.0,
+          ),
+          child: FutureHeadlines()),
     );
   }
 }

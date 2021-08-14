@@ -11,6 +11,7 @@ class FutureHeadlines extends StatefulWidget {
 
 class _FutureHeadlinesState extends State<FutureHeadlines> {
   final ApiClient _apiClient = ApiClient();
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -18,15 +19,20 @@ class _FutureHeadlinesState extends State<FutureHeadlines> {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         if (snapshot.connectionState == ConnectionState.done &&
             snapshot.hasData) {
-          return ListView.builder(
-              itemCount: snapshot.data['articles'].length,
-              itemBuilder: (BuildContext context, int index) {
-                return HeadLineTile(
-                  // context: context,
-                  snapshot: snapshot,
-                  index: index,
-                );
-              });
+          return RawScrollbar(
+            thumbColor: Colors.greenAccent,
+            radius: Radius.circular(10),
+            thickness: 5,
+            controller: _scrollController,
+            child: ListView.builder(
+                itemCount: snapshot.data['articles'].length,
+                itemBuilder: (BuildContext context, int index) {
+                  return HeadLineTile(
+                    snapshot: snapshot,
+                    index: index,
+                  );
+                }),
+          );
         } else if (snapshot.hasError) {
           return throw Exception(snapshot.error);
         } else {
