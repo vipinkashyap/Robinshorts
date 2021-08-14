@@ -57,7 +57,7 @@ class _HeadLineTileState extends State<HeadLineTile> {
           child: Text(
             widget.snapshot.data['articles'][widget.index]['title'] ??
                 'No Title',
-            textScaleFactor: 1.2,
+            textScaleFactor: 1.6,
             style: GoogleFonts.notoSans(),
           ),
         ),
@@ -66,8 +66,8 @@ class _HeadLineTileState extends State<HeadLineTile> {
         ),
         Row(
           children: [
-            Flexible(
-              flex: 1,
+            Expanded(
+              flex: 2,
               child: Image.network(
                 widget.snapshot.data['articles'][widget.index]['urlToImage'] ??
                     'https://timesofindia.indiatimes.com/photo/85324583/size-547898/85324583.jpg',
@@ -76,33 +76,35 @@ class _HeadLineTileState extends State<HeadLineTile> {
             SizedBox(
               width: 30,
             ),
-            Flexible(
-              flex: 2,
+            Expanded(
+              flex: 1,
               child: Column(
                 children: [
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    child: Text(
-                      widget.snapshot.data['articles'][widget.index]
-                              ['description'] ??
-                          'No Description',
-                      textScaleFactor: 0.95,
-                      style: GoogleFonts.oxygen(),
-                      softWrap: true,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 10,
+                  Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Text(
+                        widget.snapshot.data['articles'][widget.index]
+                                ['description'] ??
+                            'No Description',
+                        textScaleFactor: 1.2,
+                        style: GoogleFonts.oxygen(),
+                        softWrap: true,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 10,
+                      ),
                     ),
                   ),
                   SizedBox(
                     height: 10.0,
                   ),
                   Align(
-                    alignment: Alignment.bottomLeft,
+                    alignment: Alignment.bottomRight,
                     child: Text(
                       widget.snapshot.data['articles'][widget.index]
                               ['author'] ??
                           'No Author',
-                      style: GoogleFonts.lato(),
+                      style: GoogleFonts.andada(fontWeight: FontWeight.w200),
                     ),
                   ),
                 ],

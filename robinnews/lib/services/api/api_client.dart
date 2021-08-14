@@ -29,4 +29,15 @@ class ApiClient {
         return response.statusCode;
     }
   }
+
+  Future getNewsSources() async {
+    var response = await http.get(makeUrl(this.sourcesEndPoint));
+    switch (response.statusCode) {
+      case 200:
+        return jsonDecode(response.body);
+
+      default:
+        return response.statusCode;
+    }
+  }
 }
