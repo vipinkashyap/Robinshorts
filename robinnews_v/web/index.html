@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -25,11 +26,33 @@
 
   <title>robinnews_v</title>
   <link rel="manifest" href="manifest.json">
-</head>
-<body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebase/8.9.1/firebase-auth.js"></script>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBIEWn-CcEtuOjaclePs4sqvPqnBdFQ6Us",
+      authDomain: "robinnews-e4892.firebaseapp.com",
+      projectId: "robinnews-e4892",
+      storageBucket: "robinnews-e4892.appspot.com",
+      messagingSenderId: "417354714668",
+      appId: "1:417354714668:web:6da5943aadf3ce75be0b89"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    console.log('Firebase has been initied . Print to console.')
+  </script>
+</head>
+
+<body>
+
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
@@ -95,4 +118,5 @@
     }
   </script>
 </body>
+
 </html>
