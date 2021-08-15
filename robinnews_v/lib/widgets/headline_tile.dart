@@ -95,7 +95,9 @@ class _HeadLineTileState extends State<HeadLineTile> {
                                   ['description'] ??
                               'No Description',
                           textScaleFactor: 1.2,
-                          style: GoogleFonts.oxygen(),
+                          style: GoogleFonts.oxygen(
+                            fontWeight: FontWeight.w500,
+                          ),
                           softWrap: true,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 10,
@@ -113,7 +115,7 @@ class _HeadLineTileState extends State<HeadLineTile> {
                           Icon(
                             FontAwesomeIcons.at,
                             color: Colors.greenAccent,
-                            size: 12,
+                            size: 13,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 4.0),
@@ -121,7 +123,7 @@ class _HeadLineTileState extends State<HeadLineTile> {
                               widget.snapshot.data['articles'][widget.index]
                                       ['author'] ??
                                   'Anonymous',
-                              style: GoogleFonts.andada(
+                              style: GoogleFonts.kanit(
                                   fontWeight: FontWeight.w200),
                             ),
                           ),

@@ -25,13 +25,14 @@ class _FutureHeadlinesState extends State<FutureHeadlines> {
             thickness: 5,
             controller: _scrollController,
             child: ListView.builder(
-                itemCount: snapshot.data['articles'].length,
-                itemBuilder: (BuildContext context, int index) {
-                  return HeadLineTile(
-                    snapshot: snapshot,
-                    index: index,
-                  );
-                }),
+              itemCount: snapshot.data['articles'].length,
+              itemBuilder: (BuildContext context, int index) {
+                return HeadLineTile(
+                  snapshot: snapshot,
+                  index: index,
+                );
+              },
+            ),
           );
         } else if (snapshot.hasError) {
           return throw Exception(snapshot.error);
