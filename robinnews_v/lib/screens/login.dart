@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robinnews_v/screens/home.dart';
 import 'package:robinnews_v/services/auth/firebase_auth_client.dart';
 
 final _authClient = FireBaseAuthService();
@@ -18,6 +19,8 @@ class _LoginScreenState extends State<LoginScreen> {
         child: ElevatedButton(
           onPressed: () {
             _authClient.signInWithGoogle();
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => HomeScreen()));
           },
           child: Text('Login firebase'),
         ),
