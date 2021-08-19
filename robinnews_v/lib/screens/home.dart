@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:robinnews_v/search/delegate.dart';
 import 'package:robinnews_v/widgets/top_headlines.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -39,21 +40,29 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          title: Container(
-            width: MediaQuery.of(context).size.width * 0.25,
-            padding: EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.greenAccent,
+          title: InkWell(
+            onTap: () {
+              showSearch(
+                context: context,
+                delegate: DelegateSearch(['dogs']),
+              );
+            },
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.25,
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.greenAccent,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
               ),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: (Icon(
-                Icons.search,
-                color: Colors.white,
-              )),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
           actions: [
