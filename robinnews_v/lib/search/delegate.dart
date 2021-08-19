@@ -122,7 +122,7 @@ class DelegateSearch extends SearchDelegate<String> {
     final Iterable<String> suggestions = this.query.isEmpty
         ? _history
         : _words.where((word) => word.startsWith(query));
-    return ListView.builder(itemBuilder: (Context, index) {
+    return ListView.builder(itemBuilder: (context, index) {
       return ListTile();
     });
   }

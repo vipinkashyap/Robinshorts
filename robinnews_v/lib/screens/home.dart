@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:robinnews_v/services/search/delegate.dart';
+import 'package:robinnews_v/search/delegate.dart';
 import 'package:robinnews_v/widgets/top_headlines.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,9 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onTap: () {
               showSearch(
                 context: context,
-                delegate: DelegateSearch(
-                  ['dog', 'cat'],
-                ),
+                delegate: DelegateSearch(['dogs']),
               );
             },
             child: Container(
