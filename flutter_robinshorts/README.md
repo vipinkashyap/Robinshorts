@@ -1,20 +1,15 @@
 # flutter_robinshorts
 
-A new Flutter project.
+A flutter news client based on a news api. The design is inspired by the news section in the Robinhood app
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Features
 
-A few resources to get you started if this is your first Flutter project:
+- Anonymous Firebase Auth
+- Searchable news articles
+- News feed updated with top headlines
+- TODO : Save articles to firebase cloudfirestore/shared preferences
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## App Demo
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## Thank you for the resources
-
-- [Firebase Auth](https://dhruvnakum.xyz/flutter-bloc-v8-google-sign-in-and-firebase-authentication-2022-guide)
+![Simulator Screen Recording - iPhone 13 Pro - 2022-06-08 at 15 33 34](https://user-images.githubusercontent.com/16275252/172728675-4ed5943b-655c-4799-bc2a-ca7f7508de75.gif)
