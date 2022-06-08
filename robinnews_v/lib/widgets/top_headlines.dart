@@ -23,15 +23,18 @@ class _FutureHeadlinesState extends State<FutureHeadlines> {
             thumbColor: Colors.greenAccent,
             radius: Radius.circular(10),
             thickness: 5,
-            controller: _scrollController,
-            child: ListView.builder(
-              itemCount: snapshot.data['articles'].length,
-              itemBuilder: (BuildContext context, int index) {
-                return HeadLineTile(
-                  snapshot: snapshot,
-                  index: index,
-                );
-              },
+            child: SingleChildScrollView(
+              controller: _scrollController,
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: snapshot.data['articles'].length,
+                itemBuilder: (BuildContext context, int index) {
+                  return HeadLineTile(
+                    snapshot: snapshot,
+                    index: index,
+                  );
+                },
+              ),
             ),
           );
         } else if (snapshot.hasError) {

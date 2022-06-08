@@ -73,7 +73,7 @@ class _HeadLineTileState extends State<HeadLineTile> {
           child: Row(
             children: [
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: Image.network(
                   widget.snapshot.data['articles'][widget.index]
                           ['urlToImage'] ??

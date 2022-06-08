@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:robinnews_v/search/delegate.dart';
 import 'package:robinnews_v/widgets/top_headlines.dart';
+import 'package:search_page/search_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +11,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late TextEditingController searchTextController;
+
+  @override
+  void initState() {
+    searchTextController = TextEditingController();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,10 +49,25 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           title: InkWell(
-            onTap: () {
-              showSearch(
+            onTap: () async {
+              await showSearch(
                 context: context,
-                delegate: DelegateSearch(['dogs']),
+                delegate: SearchPage<String>(
+                  items: ['One', 'Two', 'Three'],
+                  searchLabel: 'Search News',
+                  suggestion: Center(
+                    child: Text('Find news articles'),
+                  ),
+                  failure: Center(
+                    child: Text('No results found'),
+                  ),
+                  filter: (value) => [
+                    value.toString(),
+                  ],
+                  builder: (person) => ListTile(
+                    title: Text('Something'),
+                  ),
+                ),
               );
             },
             child: Container(
